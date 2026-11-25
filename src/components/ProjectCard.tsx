@@ -8,11 +8,11 @@ export function ProjectCard({ project, interestCount }: { project: ProjectWithNg
   return (
     <Link
       to={`/projects/${project.id}`}
-      className="block rounded-xl border border-orange-200 bg-orange-100 p-3 text-sm transition-colors hover:bg-orange-200"
+      className="block rounded-xl bg-card ring-1 ring-foreground/10 p-3 text-sm transition-colors hover:bg-muted"
     >
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-semibold">{project.name}</h3>
-        <Badge variant="outline" className="bg-white/60">{STATUS_LABELS[project.status]}</Badge>
+        <Badge variant="secondary">{STATUS_LABELS[project.status]}</Badge>
       </div>
       {project.description && <p className="mt-1 line-clamp-2 text-muted-foreground">{project.description}</p>}
       <p className="mt-2 text-xs">

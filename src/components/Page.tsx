@@ -2,11 +2,9 @@ import type { ReactNode } from "react"
 import { cn } from "@/lib/utils"
 import { errorMessage } from "@/lib/errors"
 
-// Page wrapper. Each section of the site has its own background tone (see design/).
+// Page wrapper. The front page uses the green tone; all other pages are plain.
 const TONES = {
   green: "bg-emerald-50",
-  sand: "bg-stone-100",
-  blue: "bg-sky-50",
   plain: "bg-background",
 }
 

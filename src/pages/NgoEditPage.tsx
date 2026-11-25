@@ -26,13 +26,13 @@ export function NgoEditPage() {
     },
   })
 
-  if (auth.loading || ngo.isPending) return <Page tone="blue"><Loading /></Page>
-  if (ngo.error) return <Page tone="blue"><ErrorMessage error={ngo.error} /></Page>
-  if (!ngo.data) return <Page tone="blue" title="Organization not found"><Link to="/organizations" className="underline">Back</Link></Page>
-  if (!auth.canEditNgo(id)) return <Page tone="blue" title="Edit organization"><p>You don't have permission to edit this organization.</p></Page>
+  if (auth.loading || ngo.isPending) return <Page><Loading /></Page>
+  if (ngo.error) return <Page><ErrorMessage error={ngo.error} /></Page>
+  if (!ngo.data) return <Page title="Organization not found"><Link to="/organizations" className="underline">Back</Link></Page>
+  if (!auth.canEditNgo(id)) return <Page title="Edit organization"><p>You don't have permission to edit this organization.</p></Page>
 
   return (
-    <Page tone="blue" title={`Edit: ${ngo.data.name}`}>
+    <Page title={`Edit: ${ngo.data.name}`}>
       <NgoForm
         ngo={ngo.data}
         submitLabel="Save changes"

@@ -56,7 +56,7 @@ export function ProjectEvents({ projectId, canEdit }: { projectId: string; canEd
                 <EventForm projectId={projectId} event={event} onDone={() => setEditing(null)} />
               </li>
             ) : (
-              <li key={event.id} className="rounded-xl border border-sky-200 bg-sky-100 p-3 text-sm">
+              <li key={event.id} className="rounded-xl bg-muted/50 p-3 text-sm">
                 <h3 className="font-semibold">{event.name}</h3>
                 {event.description && <p className="mt-1 whitespace-pre-line">{event.description}</p>}
                 <p className="mt-2 flex items-center gap-1 text-xs"><CalendarIcon className="size-3" /> {formatDateTime(event.date)}</p>

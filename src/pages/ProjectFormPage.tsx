@@ -51,7 +51,7 @@ export function NewProjectPage() {
 
   const preselected = searchParams.get("ngo") ?? ""
   return (
-    <Page tone="sand" title="New project">
+    <Page title="New project">
       <ProjectForm
         ngoOptions={ngoOptions}
         defaultValues={{
@@ -113,7 +113,7 @@ export function EditProjectPage() {
   if (!canEdit) return <Page title="Edit project"><p>You don't have permission to edit this project.</p></Page>
 
   return (
-    <Page tone="sand" title={`Edit: ${p.name}`}>
+    <Page title={`Edit: ${p.name}`}>
       <ProjectForm
         defaultValues={{
           ngoId: "",

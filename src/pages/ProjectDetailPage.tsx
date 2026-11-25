@@ -46,8 +46,8 @@ export function ProjectDetailPage() {
   const isLeadAdmin = auth.isAdmin || (!!lead && auth.isNgoAdmin(lead.id))
 
   return (
-    <Page tone="sand">
-      <article className="grid gap-6 rounded-2xl bg-white/70 p-4 md:p-6">
+    <Page>
+      <article className="grid gap-6 rounded-xl bg-card ring-1 ring-foreground/10 p-4 md:p-6">
         <header className="grid gap-2">
           <div className="flex flex-wrap items-center gap-2">
             <Badge>{STATUS_LABELS[p.status]}</Badge>

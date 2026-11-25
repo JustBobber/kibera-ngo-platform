@@ -13,10 +13,10 @@ export function NgoDetailPage() {
   const ngo = useNgo(id)
   const auth = useAuth()
 
-  if (ngo.isPending) return <Page tone="blue"><Loading /></Page>
-  if (ngo.error) return <Page tone="blue"><ErrorMessage error={ngo.error} /></Page>
+  if (ngo.isPending) return <Page><Loading /></Page>
+  if (ngo.error) return <Page><ErrorMessage error={ngo.error} /></Page>
   if (!ngo.data) {
-    return <Page tone="blue" title="Organization not found"><Link to="/organizations" className="underline">Back to organizations</Link></Page>
+    return <Page title="Organization not found"><Link to="/organizations" className="underline">Back to organizations</Link></Page>
   }
 
   const n = ngo.data
@@ -24,8 +24,8 @@ export function NgoDetailPage() {
   const partnerProjects = n.project_ngos.filter((pn) => !pn.is_lead).map((pn) => pn.projects)
 
   return (
-    <Page tone="blue">
-      <article className="grid gap-6 rounded-2xl bg-white/70 p-4 md:p-6">
+    <Page>
+      <article className="grid gap-6 rounded-xl bg-card ring-1 ring-foreground/10 p-4 md:p-6">
         <header className="grid gap-2">
           <h1 className="text-2xl font-bold">{n.name}</h1>
           {auth.canEditNgo(n.id) && (

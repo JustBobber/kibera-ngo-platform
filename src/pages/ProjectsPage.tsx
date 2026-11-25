@@ -14,7 +14,6 @@ export function ProjectsPage() {
 
   return (
     <Page
-      tone="sand"
       title={showAll ? "All projects" : "Active projects overview"}
       actions={
         <label className="flex items-center gap-2 text-sm">
@@ -29,11 +28,11 @@ export function ProjectsPage() {
         <ErrorMessage error={projects.error} />
       ) : (
         // One column per category, as in the design. Stacks on small screens.
-        <div className="grid gap-4 rounded-2xl bg-stone-200/60 p-3 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {CATEGORIES.map((category) => {
             const inCategory = shown.filter((p) => p.category === category)
             return (
-              <section key={category} className="rounded-xl bg-green-200 p-3">
+              <section key={category} className="rounded-xl bg-muted/50 p-3">
                 <h2 className="mb-3 text-center font-semibold">{CATEGORY_LABELS[category]}</h2>
                 {inCategory.length === 0 ? (
                   <p className="text-center text-sm text-muted-foreground">No projects yet.</p>

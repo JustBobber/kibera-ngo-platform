@@ -62,7 +62,7 @@ export function NgoForm({
   }
 
   return (
-    <form onSubmit={form.handleSubmit(submit)} className="grid max-w-2xl gap-4 rounded-2xl bg-white p-4 md:p-6">
+    <form onSubmit={form.handleSubmit(submit)} className="grid max-w-2xl gap-4 rounded-xl bg-card ring-1 ring-foreground/10 p-4 md:p-6">
       <FormField label="Name" htmlFor="ngo-name" error={errors.name?.message}>
         <Input id="ngo-name" {...form.register("name")} />
       </FormField>

@@ -49,7 +49,7 @@ export default function MapPage() {
   }
 
   return (
-    <Page tone="green" title="Map">
+    <Page title="Map">
       <div className="mb-3 flex flex-wrap gap-4">
         {(Object.keys(LAYER_LABELS) as Layer[]).map((layer) => (
           <label key={layer} className="flex items-center gap-2 text-sm">

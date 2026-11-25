@@ -40,7 +40,7 @@ export function PartnerManager({ project }: { project: ProjectWithNgos }) {
   })
 
   return (
-    <div className="grid gap-3 rounded-xl border bg-white p-4">
+    <div className="grid gap-3 rounded-xl bg-card ring-1 ring-foreground/10 p-4">
       <h3 className="font-semibold">Manage partner NGOs</h3>
       <ul className="grid gap-2">
         {partnerNgos(project).map((ngo) => (
