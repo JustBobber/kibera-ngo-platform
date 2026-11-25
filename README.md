@@ -68,6 +68,17 @@ npx supabase migration repair --status applied 20261111102102 --remote
 
 Do not change the database through the dashboard Table Editor. The only exception is creating the first platform admin (below).
 
+### Demo data (optional)
+
+`supabase/seed.sql` adds demo NGOs, projects (all categories and statuses) and events (relative to today). It can be run more than once and creates no users.
+
+```bash
+npx supabase db query --remote -f supabase/seed.sql         # add demo data
+npx supabase db query --remote -f supabase/seed_remove.sql  # remove it again
+```
+
+To test as an NGO admin, see the optional statement at the bottom of `seed.sql`.
+
 ### Auth settings
 
 Email + password login with email confirmation (the Supabase default). In the dashboard under Authentication → URL Configuration, set the **Site URL** to where the app is hosted, and add `http://localhost:5173` to the **Redirect URLs** for local development. The confirmation email links back to the app.
