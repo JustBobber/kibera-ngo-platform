@@ -24,7 +24,7 @@ Open-source MVP: a website where NGOs in Kibera (Nairobi) can see each other's o
 
 ## Auth
 - Supabase Auth, email + password. A `profiles` row is created automatically on signup by a trigger.
-- Email confirmation is ON (Supabase default). After signup, show a "check your email to confirm your account" message. Unconfirmed users cannot log in.
+- Email confirmation is OFF for the MVP/testing (`supabase/config.toml`, `enable_confirmations = false`, applied with `npx supabase config push`), so users are logged in right after signup. It must be turned back on before real NGOs use the platform. The signup page handles both: with a session it logs the user in, otherwise it shows "check your email to confirm your account".
 - Out of scope: password reset, social login, magic links.
 
 ## Data model

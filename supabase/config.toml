@@ -1,0 +1,8 @@
+# Supabase project config. `npx supabase config push` only pushes the
+# properties declared here; everything else on the hosted project is unchanged.
+# Preview first with `npx supabase config diff`.
+
+[auth.email]
+# MVP/testing: users can log in right after signup, without confirming their email.
+# Set back to true before real NGOs use the platform (see README).
+enable_confirmations = false

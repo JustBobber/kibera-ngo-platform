@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, Navigate } from "react-router"
+import { Link, Navigate, useNavigate } from "react-router"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
@@ -20,6 +20,7 @@ type FormValues = z.infer<typeof schema>
 
 export function SignupPage() {
   const { session } = useAuth()
+  const navigate = useNavigate()
   const [error, setError] = useState<string | null>(null)
   const [sentTo, setSentTo] = useState<string | null>(null)
   const form = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { name: "", email: "", password: "" } })
@@ -29,7 +30,7 @@ export function SignupPage() {
 
   async function onSubmit({ name, email, password }: FormValues) {
     setError(null)
-    const { error } = await supabase.auth.signUp({
+    const { data, error } = await supabase.auth.signUp({
       email,
       password,
       // The name is copied into profiles by the on_auth_user_created trigger.
@@ -37,6 +38,12 @@ export function SignupPage() {
     })
     if (error) {
       setError(error.message)
+      return
+    }
+    // With email confirmation off (Supabase Auth setting) the user is logged in right away.
+    // With it on, there is no session until the email link is clicked.
+    if (data.session) {
+      navigate("/")
       return
     }
     setSentTo(email)

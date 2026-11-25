@@ -83,11 +83,20 @@ Supabase rejects sign-ups with fake domains (like `test.com`). To create a confi
 
 ### Auth settings
 
-Email + password login with email confirmation (the Supabase default). In the dashboard under Authentication → URL Configuration, set the **Site URL** to where the app is hosted, and add `http://localhost:5173` to the **Redirect URLs** for local development. The confirmation email links back to the app.
+Email + password login. **For the MVP, email confirmation is turned off**, so test users (also with fake domains like `test.com`) can sign up and log in right away. This is set in `supabase/config.toml` and applied with:
+
+```bash
+npx supabase config diff   # preview
+npx supabase config push   # apply (only the properties declared in config.toml)
+```
+
+**Turn confirmation back on before real NGOs use the platform** (`enable_confirmations = true`, then `config push`). Without it, anyone can sign up with someone else's email, and NGO members are added by email.
+
+With confirmation on, the signup page shows "check your email" instead of logging the user in. In the dashboard under Authentication → URL Configuration, set the **Site URL** to where the app is hosted, and add `http://localhost:5173` to the **Redirect URLs** for local development. The confirmation email links back to the app.
 
 ### Create the first platform admin
 
-1. Sign up in the app and confirm your email.
+1. Sign up in the app (and confirm your email, if confirmation is on).
 2. In the Supabase dashboard, open the SQL Editor and run:
 
 ```sql
