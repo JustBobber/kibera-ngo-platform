@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { useAuth } from "@/lib/auth"
 import { supabase } from "@/lib/supabase"
 import { cn } from "@/lib/utils"
+import logo from "@/assets/logo.png"
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   cn("px-2 py-1 text-sm hover:underline underline-offset-4", isActive && "font-semibold underline")
@@ -48,8 +49,10 @@ export function Layout() {
   return (
     <div className="flex min-h-svh flex-col">
       <header className="sticky top-0 z-[1000] border-b bg-violet-50">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-          <Link to="/" className="text-lg font-bold tracking-tight">Kibera Connect</Link>
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
+          <Link to="/" aria-label="Kibera Connect, front page">
+            <img src={logo} alt="Kibera Connect" width={74} height={64} className="h-14 w-auto md:h-16" />
+          </Link>
           <nav className="hidden items-center gap-2 md:flex">
             {mainLinks}
             <span className="mx-1 h-5 w-px bg-border" />
