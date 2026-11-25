@@ -22,14 +22,14 @@ export function HomePage() {
   const eventDays = allEvents.map((e) => new Date(e.date))
 
   return (
-    <Page tone="green">
+    <Page>
       <p className="mb-6 max-w-2xl text-muted-foreground">
         See what NGOs are doing in Kibera: upcoming events, ongoing projects and the organizations behind them.
       </p>
       <div className="grid gap-6 md:grid-cols-[1fr_auto]">
-        <section className="rounded-2xl border border-amber-200 bg-amber-50 p-4">
+        <section className="rounded-xl bg-card ring-1 ring-foreground/10 p-4">
           <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-            <h1 className="text-xl font-bold">
+            <h1 className="text-2xl font-bold">
               {selectedDay
                 ? `Happenings on ${selectedDay.toLocaleDateString(undefined, { day: "numeric", month: "long" })}`
                 : "Kibera happenings"}
@@ -47,15 +47,15 @@ export function HomePage() {
           ) : shownEvents.length === 0 ? (
             <p className="text-muted-foreground">No events{selectedDay ? " on this day" : " coming up"}.</p>
           ) : (
-            <ul className="grid max-h-[70vh] gap-3 overflow-y-auto pr-1">
+            <ul className="grid gap-3 md:max-h-[70vh] md:overflow-y-auto md:pr-1">
               {shownEvents.map((event) => (
                 <li key={event.id}><EventCard event={event} /></li>
               ))}
             </ul>
           )}
         </section>
-        <section className="h-fit rounded-2xl border border-amber-200 bg-amber-50 p-4">
-          <h2 className="mb-2 text-xl font-bold">Calendar</h2>
+        <section className="h-fit rounded-xl bg-card ring-1 ring-foreground/10 p-4">
+          <h2 className="mb-2 text-lg font-semibold">Calendar</h2>
           <Calendar
             mode="single"
             selected={selectedDay}

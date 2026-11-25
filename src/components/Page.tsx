@@ -1,26 +1,17 @@
 import type { ReactNode } from "react"
-import { cn } from "@/lib/utils"
 import { errorMessage } from "@/lib/errors"
 
-// Page wrapper. The front page uses the green tone; all other pages are plain.
-const TONES = {
-  green: "bg-emerald-50",
-  plain: "bg-background",
-}
-
 export function Page({
-  tone = "plain",
   title,
   actions,
   children,
 }: {
-  tone?: keyof typeof TONES
   title?: string
   actions?: ReactNode
   children: ReactNode
 }) {
   return (
-    <main className={cn("flex-1", TONES[tone])}>
+    <main className="flex-1 bg-background">
       <div className="mx-auto max-w-6xl px-4 py-6">
         {(title || actions) && (
           <div className="mb-4 flex flex-wrap items-center justify-between gap-2">

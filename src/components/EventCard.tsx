@@ -7,7 +7,7 @@ export function EventCard({ event }: { event: EventWithProject }) {
   return (
     <Link
       to={`/projects/${event.project_id}`}
-      className="block rounded-xl border border-sky-200 bg-sky-100 p-3 text-sm transition-colors hover:bg-sky-200"
+      className="block rounded-xl bg-muted/50 p-3 text-sm transition-colors hover:bg-muted"
     >
       <h3 className="font-semibold">{event.name}</h3>
       {event.description && <p className="mt-1 line-clamp-2 text-muted-foreground">{event.description}</p>}
