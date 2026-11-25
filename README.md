@@ -79,6 +79,8 @@ npx supabase db query --remote -f supabase/seed_remove.sql  # remove it again
 
 To test as an NGO admin, see the optional statement at the bottom of `seed.sql`.
 
+Supabase rejects sign-ups with fake domains (like `test.com`). To create a confirmed test admin without email, copy `supabase/seed_test_admin.sql`, set a password in the copy (don't commit it) and run the copy with `npx supabase db query --remote -f <copy>.sql`.
+
 ### Auth settings
 
 Email + password login with email confirmation (the Supabase default). In the dashboard under Authentication → URL Configuration, set the **Site URL** to where the app is hosted, and add `http://localhost:5173` to the **Redirect URLs** for local development. The confirmation email links back to the app.
