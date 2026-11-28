@@ -4,7 +4,7 @@ Open-source MVP: a website where NGOs in Kibera (Nairobi) can see each other's o
 
 ## Stack
 - TypeScript, React (Vite), Tailwind + shadcn/ui
-- Tooling from the Vite `react-ts` template: Vite, `@vitejs/plugin-react`, TypeScript, oxlint (`npm run lint`), `@types/*`. Plus `@tailwindcss/vite`.
+- Tooling from the Vite `react-ts` template: Vite, `@vitejs/plugin-react`, TypeScript, oxlint (`npm run lint`), `@types/*`. Plus `@tailwindcss/vite` and Vitest (`npm test`, unit tests as `*.test.ts` next to the code).
 - Supabase (`@supabase/supabase-js`) for database and auth
 - React Router (`react-router`), TanStack Query, react-hook-form + zod (+ `@hookform/resolvers`)
 - react-leaflet + OpenStreetMap for maps (no API key)
@@ -26,6 +26,7 @@ Open-source MVP: a website where NGOs in Kibera (Nairobi) can see each other's o
 - Supabase Auth, email + password. A `profiles` row is created automatically on signup by a trigger.
 - Email confirmation is OFF for the MVP/testing (`supabase/config.toml`, `enable_confirmations = false`, applied with `npx supabase config push`), so users are logged in right after signup. It must be turned back on before real NGOs use the platform. The signup page handles both: with a session it logs the user in, otherwise it shows "check your email to confirm your account".
 - Out of scope: password reset, social login, magic links.
+- 
 
 ## Data model
 `profiles`, `ngos`, `ngo_members`, `projects`, `project_ngos`, `events`, `project_interests`.
@@ -70,4 +71,4 @@ Design templates are in `design/` (the app is called "Kibera Connect"). Follow t
 - Prefer small, readable components over clever abstractions.
 - Keep the README setup section current: env vars, running locally, linking Supabase, migrations, creating the first admin, SPA fallback.
 - Keep extra work to a minimum; this is an MVP.
-- A task is done when `npm run build` and `npm run lint` pass without errors.
+- A task is done when `npm run build`, `npm run lint` and `npm test` pass without errors.

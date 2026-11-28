@@ -34,6 +34,15 @@ npm run lint     # lint with oxlint
 npm run preview  # serve the production build locally
 ```
 
+### 4. Tests
+
+```bash
+npm test            # run all tests once
+npm run test:watch  # re-run tests on file changes
+```
+
+Unit tests use [Vitest](https://vitest.dev) and live next to the code as `*.test.ts` (for example `src/lib/coordinates.test.ts`). They test plain functions only and need no Supabase connection or `.env`.
+
 ## Supabase
 
 ### Link the project (once)
